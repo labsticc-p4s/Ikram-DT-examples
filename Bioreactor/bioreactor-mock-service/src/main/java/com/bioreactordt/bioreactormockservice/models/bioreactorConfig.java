@@ -12,6 +12,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class bioreactorConfig {
 
+    private String reactorId;
+
+    private double populationInit;
+
+    //caracteristiques de la souche
+    private double muFactor; //la vitesse de croissance
+
     private double minPh;
     private double maxPh;
     private double optPh;
@@ -20,8 +27,11 @@ public class bioreactorConfig {
     private double maxTemp;
     private double optTemp;
 
-    private double populationInit;
+    private double populationMax;
+    private double latency;
 
-    private double muFactor;
+
+
+
 
 }

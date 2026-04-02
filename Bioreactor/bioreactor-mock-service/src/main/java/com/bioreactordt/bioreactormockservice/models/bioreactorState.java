@@ -11,11 +11,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class bioreactorState {
 
+    // facteurs environnementaux
     private String reactorId;
-    private double pH;
-    private double temp;
+
+    private double ph;
+    private double temperature;
 
     private double population;
+    private double hours;
 
 
 }

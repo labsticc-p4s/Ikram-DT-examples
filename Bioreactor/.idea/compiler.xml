@@ -2,19 +2,15 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-      </profile>
-      <profile name="Annotation profile for bioreactor-mock-service" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar" />
-        </processorPath>
+        <module name="models-service" />
+        <module name="shadow-service" />
         <module name="bioreactor-mock-service" />
+        <module name="digital-twin-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +24,7 @@
       <module name="digital-twin-service" options="-parameters" />
       <module name="env-service" options="-parameters" />
       <module name="model-service" options="-parameters" />
+      <module name="models-service" options="-parameters" />
       <module name="physical-service" options="-parameters" />
       <module name="shadow-service" options="-parameters" />
     </option>

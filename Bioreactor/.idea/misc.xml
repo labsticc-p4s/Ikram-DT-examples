@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/env-service/pom.xml" />
         <option value="$PROJECT_DIR$/data-manager-service/pom.xml" />
         <option value="$PROJECT_DIR$/bioreactor-mock-service/pom.xml" />
+        <option value="$PROJECT_DIR$/models-service/pom.xml" />
       </list>
     </option>
   </component>

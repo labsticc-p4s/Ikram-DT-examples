@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+reactor:
+  id: BIOREACTOR-001
+  config:
+    mu-max: 0.8
+    population-init: 1000000.0
+    ph:
+      min: 5.0
+      opt: 7.0
+      max: 9.0
+    temp:
+      min: 25.0
+      opt: 37.0
+      max: 45.0
+    population-max: 1.0E10
+    latency: 0.01
+
+spring:
+  application:
+    name: bioreactor-mock-service
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer

@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    depends_on: [zookeeper]
+    ports: ["9092:9092"]
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+
+  physical-service:
+    build: ./bioreactor-mock-service
+    ports: ["8081:8081"]
+    depends_on: [kafka]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      REACTOR_ID: BIOREACTOR-001
+      REACTOR_CONFIG_MU_MAX: "0.8"
+      REACTOR_CONFIG_POPULATION_INIT: "1000000"
+      REACTOR_CONFIG_PH_MIN: "5.0"
+      REACTOR_CONFIG_PH_OPT: "7.0"
+      REACTOR_CONFIG_PH_MAX: "9.0"
+      REACTOR_CONFIG_TEMP_MIN: "25.0"
+      REACTOR_CONFIG_TEMP_OPT: "37.0"
+      REACTOR_CONFIG_TEMP_MAX: "45.0"
+      REACTOR_CONFIG_POPULATION_MAX: "1.0E10"
+      REACTOR_CONFIG_LATENCY: "0.01"
+
+  model-service:
+    build: ./models-service
+    ports: ["8084:8084"]
+    depends_on: [kafka, physical-service]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
+  digital-twin-service:
+    build: ./digital-twin-service
+    ports: ["8082:8082"]
+    depends_on: [kafka]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
+  shadow-service:
+    build: ./shadow-service
+    ports: ["8083:8083"]
+    depends_on: [kafka]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
+  frontend:
+    build: ./frontend
+    ports: ["3000:80"]
+    depends_on: [physical-service, digital-twin-service, shadow-service]
