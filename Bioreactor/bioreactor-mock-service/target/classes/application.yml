@@ -3,6 +3,9 @@ server:
 
 reactor:
   id: BIOREACTOR-001
+  csv:
+    path: src/main/resources/demo.csv   # change to /data/demo.csv in Docker
+    speed-factor: 30
   config:
     mu-max: 0.8
     population-init: 1000000.0

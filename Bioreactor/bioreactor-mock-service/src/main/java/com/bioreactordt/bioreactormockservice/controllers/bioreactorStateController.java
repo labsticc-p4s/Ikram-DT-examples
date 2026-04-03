@@ -22,20 +22,17 @@ public class bioreactorStateController {
         return ResponseEntity.ok(service.getState());
     }
 
-    @PostMapping("/env/ph")
-    public ResponseEntity<bioreactorState> setPH(@RequestBody Map<String, Double> body) {
-        return ResponseEntity.ok(service.setPH(body.get("ph")));
+    // replaces setPH + setTemp — now controls replay speed
+    @PostMapping("/speed")
+    public ResponseEntity<Map<String, Object>> setSpeed(@RequestBody Map<String, Long> body) {
+        long factor = body.getOrDefault("speedFactor", 1L);
+        service.setSpeedFactor(factor);
+        return ResponseEntity.ok(Map.of("speedFactor", factor));
     }
 
-    @PostMapping("/env/temperature")
-    public ResponseEntity<bioreactorState> setTemp(@RequestBody Map<String, Double> body) {
-        return ResponseEntity.ok(service.setTemperature(body.get("temperature")));
+    @GetMapping("/speed")
+    public ResponseEntity<Map<String, Object>> getSpeed() {
+        return ResponseEntity.ok(Map.of("speedFactor", service.getSpeedFactor()));
     }
 
-    @PostMapping("/twin-command")
-    public ResponseEntity<bioreactorState> twinCommand(@RequestBody Map<String, Double> body) {
-        if (body.containsKey("ph"))          service.setPH(body.get("ph"));
-        if (body.containsKey("temperature")) service.setTemperature(body.get("temperature"));
-        return ResponseEntity.ok(service.getState());
-    }
 }
