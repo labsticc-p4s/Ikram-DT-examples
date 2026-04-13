@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class bioreactorProducer {
+public class BioreactorProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;

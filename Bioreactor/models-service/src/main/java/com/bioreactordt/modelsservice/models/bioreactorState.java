@@ -5,20 +5,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class bioreactorState {
+public class BioreactorState {
 
-    // facteurs environnementaux
-    private String reactorId;
-
-    private double ph;
-    private double temperature;
-
-    private double population;
-    private double hours;
+    private String       reactorId;
+    private List<String> strainIds;
+    private double       ph;
+    private double       temperature;
+    private double       hours;
+    private String       source;
 
 
 }

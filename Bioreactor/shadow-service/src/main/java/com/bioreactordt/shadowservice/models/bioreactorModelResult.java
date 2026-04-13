@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -18,10 +20,13 @@ public class bioreactorModelResult {
     private double ph;
     private double temperature;
     private double population;
+    private double       elapsedHours;       // ← add
 
     private double gammaPh;
     private double gammaTemp;
     private double mu;
 
     private String growthStatus;
+    private List<String> strainIds;          // ← add
+    private boolean      incompatibleStrains;
 }

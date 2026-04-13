@@ -1,6 +1,7 @@
 package com.bioreactordt.digitaltwinservice.kafka;
 
-import com.bioreactordt.digitaltwinservice.models.bioreactorModelResult;
+import com.bioreactordt.digitaltwinservice.models.BioreactorModelResult;
+import com.bioreactordt.digitaltwinservice.models.BioreactorState;
 import com.bioreactordt.digitaltwinservice.services.simulationService;
 import com.bioreactordt.digitaltwinservice.services.synchroService;
 import lombok.RequiredArgsConstructor;
@@ -14,19 +15,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Slf4j
 public class bioreactorModelResultConsumer {
 
-    private final ObjectMapper mapper;
+    private final ObjectMapper      mapper;
     private final simulationService simSerivce;
-    private final synchroService synchroService;
+    private final synchroService    synchroService;
 
     @KafkaListener(topics = "model-results", groupId = "twin-model-group")
     public void onModelResult(String message) {
         try {
-            bioreactorModelResult r = mapper.readValue(message, bioreactorModelResult.class);
-            if ("PHYSICAL".equals(r.getSource())) synchroService.onModelResult(r);
-            else simSerivce.onModelResult(r);
+            BioreactorModelResult r = mapper.readValue(message, BioreactorModelResult.class);
+            if  ("PHYSICAL".equals(r.getSource()))       synchroService.onModelResult(r);
+            else if ("SIMULATION".equals(r.getSource())) simSerivce.onModelResult(r);
         } catch (Exception e) {
             log.error("Failed to process model result: {}", e.getMessage());
         }
     }
 
+    @KafkaListener(topics = "enriched-state", groupId = "twin-enriched-group")
+    public void onEnrichedState(String message) {
+        try {
+            BioreactorState state = mapper.readValue(message, BioreactorState.class);
+            synchroService.forwardWithChosenStrains(state);
+        } catch (Exception e) {
+            log.error("Failed to forward enriched state: {}", e.getMessage());
+        }
+    }
 }

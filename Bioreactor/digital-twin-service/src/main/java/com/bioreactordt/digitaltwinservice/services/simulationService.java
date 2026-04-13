@@ -1,10 +1,10 @@
 package com.bioreactordt.digitaltwinservice.services;
 
 import com.bioreactordt.digitaltwinservice.kafka.twinStateProducer;
-import com.bioreactordt.digitaltwinservice.models.bioreactorModelResult;
-import com.bioreactordt.digitaltwinservice.models.bioreactorState;
-import com.bioreactordt.digitaltwinservice.models.simulation;
-import com.bioreactordt.digitaltwinservice.models.simulationStep;
+import com.bioreactordt.digitaltwinservice.models.BioreactorModelResult;
+import com.bioreactordt.digitaltwinservice.models.BioreactorState;
+import com.bioreactordt.digitaltwinservice.models.Simulation;
+import com.bioreactordt.digitaltwinservice.models.SimulationStep;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,12 +27,12 @@ public class simulationService {
     private final twinStateProducer producer;
 
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
-    private final Map<String, simulation> sims = new ConcurrentHashMap<>();
+    private final Map<String, Simulation> sims = new ConcurrentHashMap<>();
     private final AtomicLong counter = new AtomicLong(0);
 
-    public String start(simulation sc) {
+    public String start(Simulation sc) {
         String simId = "SIM-" + counter.incrementAndGet();
-        simulation sim = new simulation(simId, sc.description,
+        Simulation sim = new Simulation(simId, sc.description,
                 sc.stepIntervalMs, sc.simDurationSeconds, sc.steps);
         sim.state = "RUNNING";
         sim.job = scheduler.scheduleAtFixedRate(() -> update(sim), 0, sim.stepIntervalMs, TimeUnit.MILLISECONDS);
@@ -41,7 +41,7 @@ public class simulationService {
     }
 
     public boolean stop(String id) {
-        simulation s = sims.get(id);
+        Simulation s = sims.get(id);
         if (s == null) return false;
         s.state = "STOPPED";
         cancel(id);
@@ -49,7 +49,7 @@ public class simulationService {
     }
 
     public boolean pause(String id) {
-        simulation s = sims.get(id);
+        Simulation s = sims.get(id);
         if (s == null) return false;
         s.pausedAt = System.currentTimeMillis();
         s.paused = true;
@@ -58,7 +58,7 @@ public class simulationService {
     }
 
     public boolean resume(String id) {
-        simulation s = sims.get(id);
+        Simulation s = sims.get(id);
         if (s == null) return false;
         s.paused = false;
         s.state  = "RUNNING";
@@ -72,26 +72,26 @@ public class simulationService {
         return n;
     }
 
-    public List<simulation> getAll() {
+    public List<Simulation> getAll() {
         return sims.values().stream().sorted(Comparator.comparing(s -> s.simId)).toList();
     }
 
-    public void onModelResult(bioreactorModelResult r) {
-        simulation s = sims.get(r.getReactorId());
+    public void onModelResult(BioreactorModelResult r) {
+        Simulation s = sims.get(r.getReactorId());
         if (s != null  && !s.paused) s.latestModelResult = r;
     }
 
-    private void update(simulation sim) {
+    private void update(Simulation sim) {
         if (sim.paused) return;
 
-        simulationStep step = sim.currentStep();
+        SimulationStep step = sim.currentStep();
 
         producer.send(sim.simId,
-                bioreactorState.builder()
+                BioreactorState.builder()
                         .reactorId(sim.simId)
+                        .strainIds(step.getStrainIds())
                         .ph(step.getPh())
                         .temperature(step.getTemperature())
-                        .population(0)
                         .hours(sim.realHoursPerUpdate)
                         .build());
 
@@ -104,7 +104,7 @@ public class simulationService {
     }
 
     private void cancel(String id) {
-        simulation s = sims.remove(id);
+        Simulation s = sims.remove(id);
         if (s != null && s.job!=null) s.job.cancel(false);
     }
 }

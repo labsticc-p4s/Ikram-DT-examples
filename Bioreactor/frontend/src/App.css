@@ -88,7 +88,6 @@ body {
 .model-section {
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px solid #f2f2f2;
 }
 
 .model-badge {
@@ -116,7 +115,6 @@ body {
 .env-section {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid #f2f2f2;
 }
 
 .env-title {
@@ -572,3 +570,96 @@ body {
   margin: 4px 0 2px;
 }
 .pop-label { text-align: center; font-size: 11px; color: #888; }
+
+.strain-form {
+  margin-top: 8px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.strain-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+  margin-top: 6px;
+}
+
+.env-note {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 4px;
+}
+/* ── Strain Management Panel ─────────────────────────────────────────────── */
+
+.strain-mgmt-row {
+    margin: 0 24px 24px;
+}
+
+
+.strain-mgmt-hint {
+    font-size: 12px;
+    color: #888;
+    margin: 0 0 10px;
+    line-height: 1.5;
+}
+
+.strain-flash {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.strain-flash.ok  { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+.strain-flash.err { background: #fdecea; color: #c62828; border: 1px solid #ef9a9a; }
+
+.strain-list-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #fafafa;
+    transition: border-color 0.15s;
+}
+.strain-list-row:hover { border-color: #1abc9c; }
+
+.strain-list-info { flex: 1; min-width: 0; }
+
+.strain-list-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.strain-list-id {
+    font-size: 10px;
+    color: #aaa;
+    display: block;
+    margin-bottom: 4px;
+    font-family: monospace;
+}
+
+.strain-list-params {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.strain-list-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+}

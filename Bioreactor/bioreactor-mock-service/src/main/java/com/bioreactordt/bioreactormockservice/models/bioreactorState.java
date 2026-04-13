@@ -17,7 +17,6 @@ public class bioreactorState {
     private double ph;
     private double temperature;
 
-    private double population;
     private double hours;
 
 

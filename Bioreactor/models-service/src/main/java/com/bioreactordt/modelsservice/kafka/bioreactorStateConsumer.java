@@ -1,7 +1,7 @@
 package com.bioreactordt.modelsservice.kafka;
 
-import com.bioreactordt.modelsservice.models.bioreactorState;
-import com.bioreactordt.modelsservice.services.bioreactorModelService;
+import com.bioreactordt.modelsservice.models.BioreactorState;
+import com.bioreactordt.modelsservice.services.BioreactorModelService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -11,30 +11,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class bioreactorStateConsumer {
+public class BioreactorStateConsumer {
 
+    private final BioreactorModelService computeService;
     private final ObjectMapper mapper;
-    private final bioreactorModelService serivce;
 
 
-   //consume bioreactor state
-    @KafkaListener(topics = "bioreactor-state", groupId = "model-physical-group")
-    public void onPhysical(String msg) {
-        try {
-            serivce.compute(mapper.readValue(msg, bioreactorState.class), "PHYSICAL");
-        } catch (Exception e) {
-            log.error("Failed to process physical state: {}", e.getMessage());
-        }
-    }
 
-    //consume sim state
     @KafkaListener(topics = "twin-simulation", groupId = "model-simulation-group")
     public void onSimulation(String msg) {
         try {
-            serivce.compute(mapper.readValue(msg, bioreactorState.class), "SIMULATION");
+            BioreactorState state = mapper.readValue(msg, BioreactorState.class);
+            if (state.getSource() == null) state.setSource("SIMULATION");
+            computeService.compute(state);
         } catch (Exception e) {
-            log.error("Failed to process simulation state: {}", e.getMessage());
+            log.error("Failed to process twin-simulation: {}", e.getMessage());
         }
     }
-
 }

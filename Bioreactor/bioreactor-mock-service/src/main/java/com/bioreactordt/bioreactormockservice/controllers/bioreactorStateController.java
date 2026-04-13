@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/physical/reactor")
+@RequestMapping("/api/physical")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
-public class bioreactorStateController {
+public class BioreactorStateController {
 
     private final bioreactorStateService service;
 
@@ -22,17 +22,9 @@ public class bioreactorStateController {
         return ResponseEntity.ok(service.getState());
     }
 
-    // replaces setPH + setTemp — now controls replay speed
-    @PostMapping("/speed")
-    public ResponseEntity<Map<String, Object>> setSpeed(@RequestBody Map<String, Long> body) {
-        long factor = body.getOrDefault("speedFactor", 1L);
-        service.setSpeedFactor(factor);
-        return ResponseEntity.ok(Map.of("speedFactor", factor));
-    }
 
-    @GetMapping("/speed")
-    public ResponseEntity<Map<String, Object>> getSpeed() {
-        return ResponseEntity.ok(Map.of("speedFactor", service.getSpeedFactor()));
-    }
+
+
+
 
 }

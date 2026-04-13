@@ -4,21 +4,8 @@ server:
 reactor:
   id: BIOREACTOR-001
   csv:
-    path: src/main/resources/demo.csv   # change to /data/demo.csv in Docker
+    path: src/main/resources/demo.csv
     speed-factor: 30
-  config:
-    mu-max: 0.8
-    population-init: 1000000.0
-    ph:
-      min: 5.0
-      opt: 7.0
-      max: 9.0
-    temp:
-      min: 25.0
-      opt: 37.0
-      max: 45.0
-    population-max: 1.0E10
-    latency: 0.01
 
 spring:
   application:

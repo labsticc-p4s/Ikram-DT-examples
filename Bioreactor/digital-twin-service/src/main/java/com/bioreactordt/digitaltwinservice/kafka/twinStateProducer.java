@@ -1,7 +1,6 @@
 package com.bioreactordt.digitaltwinservice.kafka;
 
-import com.bioreactordt.digitaltwinservice.models.bioreactorModelResult;
-import com.bioreactordt.digitaltwinservice.models.bioreactorState;
+import com.bioreactordt.digitaltwinservice.models.BioreactorState;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -17,7 +16,7 @@ public class twinStateProducer {
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
 
-    public void send(String simId, bioreactorState state ) {
+    public void send(String simId, BioreactorState state ) {
         try {
             kafkaTemplate.send("twin-simulation", state.getReactorId(), objectMapper.writeValueAsString(state));
         }

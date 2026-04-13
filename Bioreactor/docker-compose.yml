@@ -19,46 +19,55 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
 
-  physical-service:
+  bioreactor-mock-service:
     build: ./bioreactor-mock-service
-    ports: ["8081:8081"]
+    expose: ["8081"]
     depends_on: [kafka]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      REACTOR_ID: BIOREACTOR-001
-      REACTOR_CONFIG_MU_MAX: "0.8"
-      REACTOR_CONFIG_POPULATION_INIT: "1000000"
-      REACTOR_CONFIG_PH_MIN: "5.0"
-      REACTOR_CONFIG_PH_OPT: "7.0"
-      REACTOR_CONFIG_PH_MAX: "9.0"
-      REACTOR_CONFIG_TEMP_MIN: "25.0"
-      REACTOR_CONFIG_TEMP_OPT: "37.0"
-      REACTOR_CONFIG_TEMP_MAX: "45.0"
-      REACTOR_CONFIG_POPULATION_MAX: "1.0E10"
-      REACTOR_CONFIG_LATENCY: "0.01"
 
-  model-service:
-    build: ./models-service
-    ports: ["8084:8084"]
-    depends_on: [kafka, physical-service]
+  strain-service:
+    build: ./strain-service
+    expose: ["8085"]
+
+  gateway-service:
+    build: ./gateway-service
+    ports: ["8086:8086"]
+    depends_on: [kafka, bioreactor-mock-service, strain-service]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      STRAIN_SERVICE_URL:   http://strain-service:8085
+      PHYSICAL_SERVICE_URL: http://bioreactor-mock-service:8081
+      TWIN_SERVICE_URL:     http://digital-twin-service:8082
+      SHADOW_SERVICE_URL:   http://shadow-service:8083
+      MODELS_SERVICE_URL:   http://models-service:8084
+
+  models-service:
+    build: ./models-service
+    expose: ["8084"]
+    depends_on: [kafka, strain-service]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      STRAIN_SERVICE_URL: http://strain-service:8085
 
   digital-twin-service:
     build: ./digital-twin-service
-    ports: ["8082:8082"]
+    expose: ["8082"]
     depends_on: [kafka]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
   shadow-service:
     build: ./shadow-service
-    ports: ["8083:8083"]
+    expose: ["8083"]
     depends_on: [kafka]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_GATEWAY_URL: http://localhost:8086
     ports: ["3000:80"]
-    depends_on: [physical-service, digital-twin-service, shadow-service]
+    depends_on: [gateway-service]

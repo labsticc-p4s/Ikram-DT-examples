@@ -4,16 +4,14 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/gateway-service/pom.xml" />
+        <option value="$PROJECT_DIR$/strain-service/pom.xml" />
         <option value="$PROJECT_DIR$/shadow-service/pom.xml" />
-        <option value="$PROJECT_DIR$/digital-twin-service/pom.xml" />
-        <option value="$PROJECT_DIR$/model-service/pom.xml" />
-        <option value="$PROJECT_DIR$/physical-service/pom.xml" />
-        <option value="$PROJECT_DIR$/env-service/pom.xml" />
-        <option value="$PROJECT_DIR$/data-manager-service/pom.xml" />
-        <option value="$PROJECT_DIR$/bioreactor-mock-service/pom.xml" />
         <option value="$PROJECT_DIR$/models-service/pom.xml" />
+        <option value="$PROJECT_DIR$/digital-twin-service/pom.xml" />
+        <option value="$PROJECT_DIR$/bioreactor-mock-service/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="jdk" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="24" project-jdk-type="JavaSDK" />
 </project>

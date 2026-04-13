@@ -2,31 +2,27 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="models-service" />
         <module name="shadow-service" />
+        <module name="models-service" />
         <module name="bioreactor-mock-service" />
+        <module name="gateway-service" />
+        <module name="strain-service" />
         <module name="digital-twin-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Bioreactor" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="bioreactor-mock-service" options="-parameters" />
-      <module name="data-manager-service" options="-parameters" />
       <module name="digital-twin-service" options="-parameters" />
-      <module name="env-service" options="-parameters" />
-      <module name="model-service" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="models-service" options="-parameters" />
-      <module name="physical-service" options="-parameters" />
       <module name="shadow-service" options="-parameters" />
+      <module name="strain-service" options="-parameters" />
     </option>
   </component>
 </project>

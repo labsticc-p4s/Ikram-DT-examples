@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class simulation {
+public class Simulation {
 
     public final String simId;
     public final String description;
-    public final List<simulationStep> steps;
+    public final List<SimulationStep> steps;
 
     //time model
     public final int    simDurationSeconds;
@@ -22,9 +22,9 @@ public class simulation {
     public final long[] updatesPerStep;
     public final AtomicLong updateCount = new AtomicLong(0);
 
-    // Runtime
+    //Runtime
     public volatile String  state = "RUNNING";
-    public volatile bioreactorModelResult latestModelResult;
+    public volatile BioreactorModelResult latestModelResult;
     public long   startTime = System.currentTimeMillis();
     public long   pausedAt  = 0;
     public boolean paused   = false;
@@ -32,8 +32,8 @@ public class simulation {
     public ScheduledFuture<?> job;
 
 
-    public simulation(String simId, String description, long stepIntervalMs,
-                      int simDurationSeconds, List<simulationStep> steps) {
+    public Simulation(String simId, String description, long stepIntervalMs,
+                      int simDurationSeconds, List<SimulationStep> steps) {
         this.simId              = simId;
         this.description        = description;
         this.stepIntervalMs     = stepIntervalMs;
@@ -41,10 +41,10 @@ public class simulation {
         this.steps              = steps;
 
         this.totalRealDurationHours = steps.stream()
-                .mapToDouble(simulationStep::getRealDurationHours).sum();
+                .mapToDouble(SimulationStep::getRealDurationHours).sum();
 
         double totalUpdatesD = (simDurationSeconds * 1000.0) / stepIntervalMs;
-        this.totalUpdates        = Math.round(totalUpdatesD);
+        this.totalUpdates = Math.max(1, Math.round(totalUpdatesD));
         this.realHoursPerUpdate  = totalRealDurationHours / totalUpdates;
 
         this.updatesPerStep = new long[steps.size()];
@@ -57,7 +57,7 @@ public class simulation {
         updatesPerStep[steps.size() - 1] = totalUpdates - assigned;
     }
 
-    public simulationStep currentStep() {
+    public SimulationStep currentStep() {
         long tick = updateCount.get(), boundary = 0;
         for (int i = 0; i < steps.size(); i++) {
             boundary += updatesPerStep[i];

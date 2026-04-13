@@ -18,23 +18,21 @@ public class shadowService {
     private static final int MAX = 10_000;
 
     private final List<bioreactorModelResult> physicalLogs = Collections.synchronizedList(new ArrayList<>());
-    private final List<bioreactorModelResult> simLogs = Collections.synchronizedList(new ArrayList<>());
-
+    private final List<bioreactorModelResult> simLogs      = Collections.synchronizedList(new ArrayList<>());
     private final AtomicLong counter = new AtomicLong(0);
 
-    @Getter
-    private volatile boolean twinned    = false;
-    @Getter
-    private volatile String  reactorId  = null;
+    @Getter private volatile boolean twinned   = false;
+    @Getter private volatile String  reactorId = null;
 
     public void setTwinned(boolean enabled, String reactorId) {
         this.twinned   = enabled;
         this.reactorId = enabled ? reactorId : null;
     }
 
-
     public void store(bioreactorModelResult r) {
-        r.setTupleId(counter.incrementAndGet());
+        // TWIN results are for the twin panel only — never stored in shadow
+        if ("TWIN".equals(r.getSource())) return;
+
         if ("PHYSICAL".equals(r.getSource())) {
             if (!twinned) return;
             if (reactorId != null && !reactorId.equals(r.getReactorId())) return;
@@ -42,6 +40,7 @@ public class shadowService {
             if (physicalLogs.size() >= MAX) physicalLogs.remove(0);
             physicalLogs.add(r);
         } else {
+            // SIMULATION
             r.setTupleId(counter.incrementAndGet());
             if (simLogs.size() >= MAX) simLogs.remove(0);
             simLogs.add(r);
@@ -72,5 +71,4 @@ public class shadowService {
         simLogs.clear();
         counter.set(0);
     }
-
 }
