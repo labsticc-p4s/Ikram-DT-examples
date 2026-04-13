@@ -44,7 +44,7 @@ public class BioreactorModelService {
                                                               .calculate(state.getReactorId(), state.getHours(), mu, c.getPopulationInit(), c.getPopulationMax(), c.getLatency());
 
 
-        // 6. publish
+
         producer.send(BioreactorModelResult.builder()
                 .reactorId(state.getReactorId())
                 .source(state.getSource())
@@ -57,7 +57,6 @@ public class BioreactorModelService {
                 .mu(round4(mu))
                 .growthStatus(pop.phase())
                 .strainIds(c.getStrainIds())
-                .incompatibleStrains(c.isIncompatible())
                 .build());
     }
 

@@ -30,7 +30,7 @@ public class shadowService {
     }
 
     public void store(bioreactorModelResult r) {
-        // TWIN results are for the twin panel only — never stored in shadow
+
         if ("TWIN".equals(r.getSource())) return;
 
         if ("PHYSICAL".equals(r.getSource())) {
