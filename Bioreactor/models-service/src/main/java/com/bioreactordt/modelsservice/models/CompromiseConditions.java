@@ -28,6 +28,5 @@ public class CompromiseConditions {
 
     private double       latency;
     private List<String> strainIds;
-    private boolean      incompatible;
-    private String       incompatibilityReason;
+
 }

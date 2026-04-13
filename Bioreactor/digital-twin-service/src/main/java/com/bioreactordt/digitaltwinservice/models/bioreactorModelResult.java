@@ -29,5 +29,4 @@ public class BioreactorModelResult {
     private String growthStatus;
 
     private List<String> strainIds;
-    private boolean incompatibleStrains;
 }

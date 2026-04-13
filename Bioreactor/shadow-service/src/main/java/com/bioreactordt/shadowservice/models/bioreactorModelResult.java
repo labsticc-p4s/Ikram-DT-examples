@@ -20,13 +20,12 @@ public class bioreactorModelResult {
     private double ph;
     private double temperature;
     private double population;
-    private double       elapsedHours;       // ← add
+    private double elapsedHours;
 
     private double gammaPh;
     private double gammaTemp;
     private double mu;
 
     private String growthStatus;
-    private List<String> strainIds;          // ← add
-    private boolean      incompatibleStrains;
+    private List<String> strainIds;
 }
