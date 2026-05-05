@@ -1,0 +1,11 @@
+com\bioreactordt\gatewayservice\models\InitialStrain.class
+com\bioreactordt\gatewayservice\GatewayServiceApplication$1.class
+com\bioreactordt\gatewayservice\models\Experimentation$ExperimentationBuilder.class
+com\bioreactordt\gatewayservice\models\InitialStrain$InitialStrainBuilder.class
+com\bioreactordt\gatewayservice\controllers\GatewayController.class
+com\bioreactordt\gatewayservice\models\BioreactorState$BioreactorStateBuilder.class
+com\bioreactordt\gatewayservice\models\BioreactorState.class
+com\bioreactordt\gatewayservice\models\Experimentation.class
+com\bioreactordt\gatewayservice\GatewayServiceApplication.class
+com\bioreactordt\gatewayservice\services\GatewayService.class
+com\bioreactordt\gatewayservice\kafka\BioreactorConsumer.class

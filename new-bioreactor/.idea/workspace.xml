@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32b3a0e5-c35a-43ae-b151-78aeb381f1bd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/BioreactorMockServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/controllers/BioreactorStateController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/kafka/BioreactorProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/models/bioreactorState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/replay/MapTimeSerie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/replay/ModTimeSerie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/replay/RawDataSheet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/replay/TimeSerie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/services/bioreactorStateService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/resources/2022-10-03-Act2-1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/resources/2023-01-30-Act3-1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/resources/20230306-Act4-1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/bioreactor-mock-service/src/main/resources/demo.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/DigitalTwinServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/controllers/twinController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/kafka/bioreactorModelResultConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/kafka/twinStateProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/models/BioreactorModelResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/models/BioreactorState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/models/Simulation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/models/SimulationStep.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/services/simulationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/services/synchroService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/digital-twin-service/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/compos/GammaBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/compos/PhysicalCard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/compos/ShadowCard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/compos/SimStrainList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/compos/SimulationsCard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/compos/StrainEditor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/compos/StrainManagementPanel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/compos/TwinCard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/helpers/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/hooks/useReactor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/hooks/useSimulations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/frontend/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/GatewayServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/controllers/GatewayController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/controllers/GatewayProxyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/helpers/ValidationValues.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/kafka/BioreactorStateConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/models/BioreactorCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/models/BioreactorState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/models/EnrichedBioreactorState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/services/CommandService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/java/com/bioreactordt/gatewayservice/services/EnrichedStateService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/gateway-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/greycat/project.gcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/ModelsServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/pH/CardinalPhGamma.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/pH/PhGammaFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/pH/QuadraticPhGamma.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/population/GompertzPopulation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/population/LogisticPopulation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/population/PopulationFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/temperature/CardinalTempGamma.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/temperature/QuadraticTempGamma.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/calculators/temperature/TempGammaFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/controllers/BioreactorModelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/kafka/BioreactorModelResultProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/kafka/BioreactorStateConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/manager/ModelCoordinator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/manager/ModelManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/models/BioreactorModelResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/models/BioreactorState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/models/CompromiseConditions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/models/ModelSelection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/models/StrainConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/java/com/bioreactordt/modelsservice/services/BioreactorModelService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/models-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/libs/greycat-sdk-7.8.1-stable.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/src/main/java/com/bioreactordt/shadowservice/ShadowServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/src/main/java/com/bioreactordt/shadowservice/controllers/shadowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/src/main/java/com/bioreactordt/shadowservice/kafka/shadowKafkaConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/src/main/java/com/bioreactordt/shadowservice/models/bioreactorModelResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/src/main/java/com/bioreactordt/shadowservice/services/shadowService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/shadow-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/strain-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/strain-service/libs/greycat-sdk-7.8.1-stable.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/strain-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/strain-service/src/main/java/com/bioreactordt/strainservice/StrainServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/strain-service/src/main/java/com/bioreactordt/strainservice/controllers/StrainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/strain-service/src/main/java/com/bioreactordt/strainservice/models/StrainConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/strain-service/src/main/java/com/bioreactordt/strainservice/services/StrainService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioreactor AFTER GC/strain-service/src/main/resources/application.yml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="75" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3CAFmKalt2kBS0akD0XOtYl8hwJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.bioreactor-mock-service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.kafka: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.experiment-service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.greycat/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.models-service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/i25yousf/Documents/DT-examples/new-bioreactor&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\greycat" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\models-service" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\gateway-service" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\experiment-service\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\experiment-service" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\greycat" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\greycatSDK" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\Bioreactor\greycat" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.bioreactordt.gatewayservice.models" />
+      <recent name="com.bioreactordt.modelsservice.models" />
+      <recent name="com.bioreactordt.experimentservice.models" />
+      <recent name="com.bioreactordt.strainservice.services" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.experiment-service/Dockerfile">
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="bioreactor-mock-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="bioreactor-mock-service/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.kafka: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="kafka" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="experiment-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="experiment-service/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="greycat/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="greycat/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="models-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="models-service/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.experiment-service/Dockerfile" />
+        <item itemvalue="Docker.bioreactor-mock-service/Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
+        <item itemvalue="Docker.models-service/Dockerfile" />
+        <item itemvalue="Docker.greycat/Dockerfile" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32b3a0e5-c35a-43ae-b151-78aeb381f1bd" name="Changes" comment="" />
+      <created>1775820625550</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775820625550</updated>
+    </task>
+    <servers />
+  </component>
+</project>

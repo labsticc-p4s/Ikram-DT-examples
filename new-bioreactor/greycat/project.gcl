@@ -1,0 +1,268 @@
+@library("std", "7.8.162-stable");
+
+type Bioreactor {
+    reactorId: String;
+    position: geo;
+}
+
+
+type StrainFamily {
+    strainId:       String;
+    name:           String;
+    muMax:          float;
+    latency:        float;
+    phMin:          float;
+    phOpt:          float;
+    phMax:          float;
+    tempMin:        float;
+    tempOpt:        float;
+    tempMax:        float;
+}
+
+
+type InitialStrain{
+    condId: String;
+    populationInit: float;
+    populationMax:  float;
+    family: nodeIndex<String, node<StrainFamily>>;
+}
+
+
+
+type Experimentation{
+    condInit: nodeList<node<InitialStrain>>;
+    reactor:  node<Bioreactor>;
+    states: nodeTime<ExperimentationState>;
+
+    //meta data
+    populationModel: String;
+    phModel: String;
+    tempModel: String;
+
+    //physical or sim
+    source: String;
+}
+
+type ExperimentationState{
+     ph:  float;
+     temperature:  float;
+     population:   float;
+     mu:  float;
+     gammaPh: float;
+     gammaTemp: float;
+     growthStatus: String;
+}
+
+
+var bioreactors_by_id: nodeIndex<String, node<Bioreactor>>;
+
+@expose
+fn bioreactor_save(bioreactorId: String){
+    var existing = bioreactors_by_id.get(bioreactorId);
+    if (existing != null) {
+        return null;
+    }
+
+    var b = Bioreactor {
+        reactorId: bioreactorId,
+        position: geo { 0.0, 0.0 }
+    };
+    bioreactors_by_id.set(bioreactorId, node<Bioreactor>{b});
+    println("bioreactor saved yopi");
+}
+
+
+@expose
+fn ikram(): String {
+    var msg = "ikram yousfi";
+    println(msg);
+    return msg;
+}
+
+var families_by_id: nodeIndex<String, node<StrainFamily>>;
+
+var initial_strains_by_id: nodeIndex<String, node<InitialStrain>>;
+
+var families_by_condId: nodeIndex<String, String>;
+
+
+
+@expose
+fn family_save(strainId: String, name: String, muMax: float, latency: float,phMin: float, phOpt: float, phMax: float,tempMin: float, tempOpt: float, tempMax: float) {
+
+
+    var family = StrainFamily {
+        strainId: strainId, name: name, muMax: muMax, latency: latency,
+        phMin: phMin, phOpt: phOpt, phMax: phMax,
+        tempMin: tempMin, tempOpt: tempOpt, tempMax: tempMax
+    };
+
+    var existing = families_by_id.get(strainId);
+    if (existing != null) {
+        existing.set(family);
+    } else {
+        families_by_id.set(strainId, node<StrainFamily>{family});
+    }
+
+        println("strain fam is saved haha");
+                println(families_by_id);
+
+
+}
+
+
+@expose
+fn save_initial_strain(condId: String, popInit: float, popMax: float, familyId: String) {
+
+    var familyRef = families_by_id.get(familyId);
+
+    if (familyRef == null) {
+        println("Strain family not found, create one");
+        return null;
+    }
+
+    var localFamilyMap = nodeIndex<String, node<StrainFamily>>{};
+    localFamilyMap.set(familyId, familyRef);
+
+    var initial = InitialStrain {
+        condId: condId,
+        populationInit: popInit,
+        populationMax:  popMax,
+        family:         localFamilyMap
+    };
+
+    initial_strains_by_id.set(condId, node<InitialStrain>{initial});
+    var existing = families_by_condId.get(condId);
+    if (existing == null) {
+        families_by_condId.set(condId, familyId);
+    } else {
+        families_by_condId.set(condId, existing + "," + familyId);
+    }
+        println("Initial strain created ");
+
+}
+
+@expose
+fn get_initial_strain(condId: String): Array<any?>? {
+     println("ikram");
+     println(condId);
+    var ref = initial_strains_by_id.get(condId);
+    if (ref == null) {
+        println("nulllllll");
+        return null;
+    }
+
+
+
+    var s = *ref;
+
+     var familyId = families_by_condId.get(condId);
+
+     println(familyId);
+
+
+
+    var result = Array<any?>{};
+    result.add(s.condId);
+    result.add(s.populationInit);
+    result.add(s.populationMax);
+    result.add(familyId);
+
+    println(result);
+    return result;
+
+}
+
+
+var experiments_by_reactorId: nodeIndex<String, node<Experimentation>>;
+
+@expose
+fn experiment_save(reactorId: String, condId: String, populationModel: String, phModel: String, tempModel: String, source: String) {
+
+    var reactorRef = bioreactors_by_id.get(reactorId);
+    if (reactorRef == null) {
+            println("no bioreactor was found");
+        return null;
+    }
+
+    var strainInit = initial_strains_by_id.get(condId);
+    if (strainInit== null) {
+        println("no strain init was found");
+        return null;
+    }
+
+    var strainList = nodeList<node<InitialStrain>>{};
+    strainList.add(strainInit);
+
+    var exp = Experimentation {
+        reactor: reactorRef,
+        condInit: strainList,
+        states: nodeTime<ExperimentationState>{},
+        populationModel: populationModel,
+        phModel: phModel,
+        tempModel: tempModel,
+        source: source,
+    };
+
+
+    experiments_by_reactorId.set(reactorId, node<Experimentation>{exp});
+    println("Experiment created ");
+
+
+}
+
+
+
+
+@expose
+fn experiment_state_save(reactorId: String, ph: float, temperature: float, population: float, mu: float,gammaPh: float, gammaTemp: float, growthStatus: String) {
+
+     var exp = experiments_by_reactorId.get(reactorId);
+     if (exp == null) {
+            println("No experiment running");
+            return null;
+     }
+
+    var state = ExperimentationState {
+        ph: ph, temperature: temperature,
+        population: population, mu: mu,
+        gammaPh: gammaPh, gammaTemp: gammaTemp,
+        growthStatus: growthStatus
+    };
+
+    var timestamp = time::now();
+    exp->states.setAt(timestamp, state);
+    println("exp state are saved");
+
+}
+
+
+@expose
+fn get_strain_params(condId: String): Array<any?>? {
+    var strainRef = initial_strains_by_id.get(condId);
+    if (strainRef == null) { return null; }
+    var s = *strainRef;
+
+    var familyId = families_by_condId.get(condId);
+    if (familyId == null) { return null; }
+
+    var famRef = families_by_id.get(familyId);
+    if (famRef == null) { return null; }
+    var f = *famRef;
+
+    var result = Array<any?>{};
+    result.add(f.muMax);
+    result.add(f.latency);
+    result.add(f.phMin);
+    result.add(f.phOpt);
+    result.add(f.phMax);
+    result.add(f.tempMin);
+    result.add(f.tempOpt);
+    result.add(f.tempMax);
+    result.add(s.populationInit);
+    result.add(s.populationMax);
+    return result;
+}
+
+
+
