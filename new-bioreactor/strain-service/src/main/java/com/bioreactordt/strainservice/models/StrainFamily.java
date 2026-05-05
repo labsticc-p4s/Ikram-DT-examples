@@ -1,0 +1,27 @@
+package com.bioreactordt.strainservice.models;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class StrainFamily {
+
+    private String strainId;
+    private String name;
+
+    private double muMax;
+    private double latency;
+
+    private double phMin;
+    private double phOpt;
+    private double phMax;
+
+    private double tempMin;
+    private double tempOpt;
+    private double tempMax;
+}
