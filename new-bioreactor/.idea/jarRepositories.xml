@@ -46,5 +46,10 @@
       <option name="name" value="local-greycat-repo" />
       <option name="url" value="file://C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\gateway-service/../local-maven-repo" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-greycat-repo" />
+      <option name="name" value="local-greycat-repo" />
+      <option name="url" value="file:///C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\bioreactor-mock-service/../local-maven-repo" />
+    </remote-repository>
   </component>
 </project>

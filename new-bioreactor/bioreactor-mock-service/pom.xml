@@ -18,13 +18,7 @@
         <java.version>17</java.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>local-greycat-repo</id>
-            <url>file:///${project.basedir}/../local-maven-repo</url>
-        </repository>
-    </repositories>
-
+ 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

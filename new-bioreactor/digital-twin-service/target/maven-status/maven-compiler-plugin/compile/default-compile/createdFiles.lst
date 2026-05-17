@@ -1,0 +1,7 @@
+com\bioreactordt\digitaltwinservice\DigitalTwinServiceApplication.class
+com\bioreactordt\digitaltwinservice\models\SimulationStep.class
+com\bioreactordt\digitaltwinservice\models\SimulationStep$SimulationStepBuilder.class
+com\bioreactordt\digitaltwinservice\services\SimulationService.class
+com\bioreactordt\digitaltwinservice\models\Simulation.class
+com\bioreactordt\digitaltwinservice\models\Simulation$SimulationBuilder.class
+com\bioreactordt\digitaltwinservice\kafka\SimulationStateProducer.class

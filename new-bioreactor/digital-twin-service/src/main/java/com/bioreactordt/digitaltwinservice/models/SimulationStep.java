@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SimulationStep {
+
     private double ph;
     private double temperature;
     private double realDurationMin;
-    private int tickPerStep;
+  //  private int tickPerStep;
 
 }

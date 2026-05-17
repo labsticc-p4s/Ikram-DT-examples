@@ -1,0 +1,16 @@
+com\bioreactordt\bioreactormockservice\models\BioreactorState.class
+com\bioreactordt\bioreactormockservice\BioreactorMockServiceApplication.class
+com\bioreactordt\bioreactormockservice\kafka\BioreactorProducer.class
+com\bioreactordt\bioreactormockservice\models\BioreactorEntity$BioreactorEntityBuilder.class
+com\bioreactordt\bioreactormockservice\replay\TimeSerie.class
+com\bioreactordt\bioreactormockservice\models\sensor\SensorSource.class
+com\bioreactordt\bioreactormockservice\replay\RawDataSheet.class
+com\bioreactordt\bioreactormockservice\services\BioreactorStateSendService.class
+com\bioreactordt\bioreactormockservice\replay\ModTimeSerie.class
+com\bioreactordt\bioreactormockservice\models\BioreactorState$BioreactorStateBuilder.class
+com\bioreactordt\bioreactormockservice\replay\MapTimeSerie.class
+com\bioreactordt\bioreactormockservice\models\sensor\CsvSensorBioreactorData.class
+com\bioreactordt\bioreactormockservice\services\BioreactorEntityService.class
+com\bioreactordt\bioreactormockservice\controllers\BioreactorStateController.class
+com\bioreactordt\bioreactormockservice\models\BioreactorEntity.class
+com\bioreactordt\bioreactormockservice\replay\MapTimeSerie$DataPoint.class
