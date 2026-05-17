@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    depends_on: [zookeeper]
+    ports: ["9092:9092"]
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+
+
+
+  # environment service
+  env-service:
+    build: ./env-service
+    ports: ["8090:8090"]
+    environment:
+      - placeholder=true
+    volumes:
+      - ./env-service/src:/app/src
+
+  #PL1 default has all sensors and data
+  physical-service-1:
+    build: ./physical-service
+    ports: ["8081:8081"]
+    depends_on: [kafka, env-service]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      LAMP_ID: LAMP-001
+      LAMP_ROOM: chambre2
+      LAMP_PORT: 8081
+      LAMP_HOST: physical-service-1
+      LAMP_DESCRIPTION: Office lamp
+      LAMP_HAS_TEMPERATURE_SENSOR: "true"
+      LAMP_HAS_ROOM_TEMP_SENSOR: "true"
+      LAMP_MAX_WATTS: "60.0"
+      LAMP_MAX_LIFE_MINUTES: "1500000"
+      SPRING_DEVTOOLS_RESTART_ENABLED: 'true'
+    volumes:
+      - ./physical-service/src:/app/src
+
+  #PL2 has no room temp sensor and has no temp zensor
+  physical-service-2:
+    build: ./physical-service
+    ports: ["8091:8091"]
+    depends_on: [kafka, env-service]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      LAMP_ID: LAMP-002
+      LAMP_ROOM: chambre
+      LAMP_PORT: 8091
+      LAMP_HOST: physical-service-2
+      LAMP_DESCRIPTION: House lamp
+      LAMP_HAS_TEMPERATURE_SENSOR: "false"
+      LAMP_HAS_ROOM_TEMP_SENSOR: "false"
+      LAMP_MAX_WATTS: "100.0"
+      LAMP_MAX_LIFE_MINUTES: "800000"
+      SPRING_DEVTOOLS_RESTART_ENABLED: 'true'
+    volumes:
+      - ./physical-service/src:/app/src
+
+  data-manager-service:
+    build: ./data-manager-service
+    ports: ["8085:8085"]
+    depends_on: [kafka, env-service, physical-service-1, physical-service-2]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_DEVTOOLS_RESTART_ENABLED: 'true'
+    volumes:
+      - ./data-manager-service/src:/app/src
+
+  model-service:
+    build: ./model-service
+    ports: ["8084:8084"]
+    depends_on: [kafka, data-manager-service]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_DEVTOOLS_RESTART_ENABLED: 'true'
+    volumes:
+      - ./model-service/src:/app/src
+
+  digital-twin-service:
+    build: ./digital-twin-service
+    ports: ["8082:8082"]
+    depends_on: [kafka]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_DEVTOOLS_RESTART_ENABLED: 'true'
+    volumes:
+      - ./digital-twin-service/src:/app/src
+
+
+
+  shadow-service:
+    build: ./shadow-service
+    ports: ["8083:8083"]
+    depends_on: [kafka]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_DEVTOOLS_RESTART_ENABLED: 'true'
+    volumes:
+      - ./shadow-service/src:/app/src
+
+  frontend:
+    build: ./frontend
+    ports: ["3000:80"]
+    depends_on: [physical-service-1, digital-twin-service, shadow-service, env-service]
