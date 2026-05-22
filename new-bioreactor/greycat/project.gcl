@@ -152,8 +152,6 @@ fn get_initial_strain(condId: String): Array<any?>? {
         return null;
     }
 
-
-
     var s = *ref;
 
      var familyId = families_by_condId.get(condId);
@@ -170,69 +168,6 @@ fn get_initial_strain(condId: String): Array<any?>? {
 
     println(result);
     return result;
-
-}
-
-
-var experiments_by_reactorId: nodeIndex<String, node<Experimentation>>;
-
-@expose
-fn experiment_save(reactorId: String, condId: String, populationModel: String, phModel: String, tempModel: String, source: String) {
-
-    var reactorRef = bioreactors_by_id.get(reactorId);
-    if (reactorRef == null) {
-            println("no bioreactor was found");
-        return null;
-    }
-
-    var strainInit = initial_strains_by_id.get(condId);
-    if (strainInit== null) {
-        println("no strain init was found");
-        return null;
-    }
-
-    var strainList = nodeList<node<InitialStrain>>{};
-    strainList.add(strainInit);
-
-    var exp = Experimentation {
-        reactor: reactorRef,
-        condInit: strainList,
-        states: nodeTime<ExperimentationState>{},
-        populationModel: populationModel,
-        phModel: phModel,
-        tempModel: tempModel,
-        source: source,
-    };
-
-
-    experiments_by_reactorId.set(reactorId, node<Experimentation>{exp});
-    println("Experiment created ");
-
-
-}
-
-
-
-
-@expose
-fn experiment_state_save(reactorId: String, ph: float, temperature: float, population: float, mu: float,gammaPh: float, gammaTemp: float, growthStatus: String) {
-
-     var exp = experiments_by_reactorId.get(reactorId);
-     if (exp == null) {
-            println("No experiment running");
-            return null;
-     }
-
-    var state = ExperimentationState {
-        ph: ph, temperature: temperature,
-        population: population, mu: mu,
-        gammaPh: gammaPh, gammaTemp: gammaTemp,
-        growthStatus: growthStatus
-    };
-
-    var timestamp = time::now();
-    exp->states.setAt(timestamp, state);
-    println("exp state are saved");
 
 }
 
@@ -263,6 +198,113 @@ fn get_strain_params(condId: String): Array<any?>? {
     result.add(s.populationMax);
     return result;
 }
+
+
+
+
+
+//var experiments_by_reactorId: nodeIndex<String, node<Experimentation>>;
+var experiments_by_id: nodeIndex<String, node<Experimentation>>;
+var experiments_by_reactorId: nodeIndex<String, nodeList<node<Experimentation>>>;
+
+
+@expose
+fn experiment_save(experimentId: String, reactorId: String, condId: String, populationModel: String, phModel: String, tempModel: String, source: String) {
+
+    var reactorRef = bioreactors_by_id.get(reactorId);
+    if (reactorRef == null) {
+        println("no bioreactor was found");
+        return null;
+    }
+
+    var strainInit = initial_strains_by_id.get(condId);
+    if (strainInit== null) {
+        println("no strain init was found");
+        return null;
+    }
+
+    var strainList = nodeList<node<InitialStrain>>{};
+    strainList.add(strainInit);
+
+    var exp = Experimentation {
+        reactor: reactorRef,
+        condInit: strainList,
+        states: nodeTime<ExperimentationState>{},
+        populationModel: populationModel,
+        phModel: phModel,
+        tempModel: tempModel,
+        source: source,
+    };
+
+    var expn = node<Experimentation>{exp};
+    experiments_by_id.set(experimentId, expn);
+
+
+    var exisiting = experiments_by_reactorId.get(reactorId);
+    if (exisiting == null){
+        var list = nodeList<node<Experimentation>>{};
+        list.add(expn);
+        experiments_by_reactorId.set(reactorId, list);
+    }else{
+        exisiting.add(expn);
+    }
+
+  //  experiments_by_reactorId.set(reactorId, node<Experimentation>{exp});
+    println("Experiment created ");
+
+
+}
+
+
+
+
+@expose
+fn experiment_state_save(experimentId: String, ph: float, temperature: float, population: float, mu: float,gammaPh: float, gammaTemp: float, growthStatus: String) {
+
+     var exp = experiments_by_id.get(experimentId);
+     if (exp == null ) {
+        //println("No experiment running");
+        return null;
+     }
+
+    var state = ExperimentationState {
+        ph: ph, temperature: temperature,
+        population: population, mu: mu,
+        gammaPh: gammaPh, gammaTemp: gammaTemp,
+        growthStatus: growthStatus
+    };
+
+    var timestamp = time::now();
+    exp->states.setAt(timestamp, state);
+    println("exp state are saved");
+
+}
+
+
+@expose
+fn get_experiment(reactorId: String): Array<any?>? {
+    println("hello");
+
+    var list = experiments_by_reactorId.get(reactorId);
+    if (list == null  || list.size() == 0) { return null; }
+
+    var results = Array<any?>{};
+    for (var i = 0; i < list.size(); i++) {
+        var exp = *list.get(i);
+        var reactor = *exp.reactor;
+        var entry = Array<any?>{};
+        entry.add(reactor.reactorId);
+        entry.add(exp.populationModel);
+        entry.add(exp.phModel);
+        entry.add(exp.tempModel);
+        entry.add(exp.source);
+        results.add(entry);
+    }
+    return results;
+
+}
+
+
 
 
 

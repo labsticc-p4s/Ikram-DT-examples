@@ -18,7 +18,6 @@ public class Simulation {
 
     private List<SimulationStep> steps;
 
-    private int totalRealMin;
     private int totalScreenMin;
     private int ticksPerStep;
 

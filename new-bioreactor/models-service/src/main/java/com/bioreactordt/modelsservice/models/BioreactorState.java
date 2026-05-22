@@ -13,6 +13,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class BioreactorState {
 
+    private String experimentId;
     private String reactorId;
     private Map<String, Double> sensorReadings;
 

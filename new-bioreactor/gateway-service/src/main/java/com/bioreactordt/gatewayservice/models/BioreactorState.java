@@ -14,5 +14,6 @@ import java.util.Map;
 public class BioreactorState {
 
     private String  reactorId;
+    private String experimentId;
     private Map<String, Double> sensorReadings;
 }

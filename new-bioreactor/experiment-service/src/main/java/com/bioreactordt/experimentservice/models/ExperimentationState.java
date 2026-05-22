@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ExperimentationState {
 
+    private String experimentId;
     private double ph;
     private double temperature;
     private double population;

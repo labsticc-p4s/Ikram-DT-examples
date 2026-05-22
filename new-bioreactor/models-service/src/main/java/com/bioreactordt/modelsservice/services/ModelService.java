@@ -23,12 +23,14 @@ public class ModelService {
     private  ExperimentStateProducer producer;
 
 
-    // Active experiment per reactorId
+    //active experiment per exp id
     private final ConcurrentHashMap<String, Experimentation> experiments = new ConcurrentHashMap<>();
 
-    // Latest bioreactor readings per reactorId
+    //latest bioreactor readings per reactorId
     private final ConcurrentHashMap<String, BioreactorState> latestStates = new ConcurrentHashMap<>();
 
+    //cache strains
+    private final ConcurrentHashMap<String, double[]> strainParamsCache = new ConcurrentHashMap<>();
 
     public ModelService(@Value("${greycat.url}") String greycatUrl, ExperimentStateProducer producer) {
         this.greycatUrl = greycatUrl;
@@ -52,22 +54,25 @@ public class ModelService {
 
     //when received the experimentation from the experiment-service
     public void onExperimentStarted(Experimentation exp) {
-        experiments.put(exp.getReactorId(), exp);
-        log.info("Experiment registered for reactor {}", exp.getReactorId());
+        experiments.putIfAbsent(exp.getExperimentId(), exp);
+        //log.info("Experiment registered for reactor {}", exp.getReactorId());
     }
 
     //when recieved bioreactor state from the gateway after normalization
     public void onBioreactorState(BioreactorState state) throws IOException {
-        latestStates.put(state.getReactorId(), state);
 
-        Experimentation exp = experiments.get(state.getReactorId());
-        if (exp == null) {
-            log.debug("No active experiment for reactor {}, skipping", state.getReactorId());
+
+        Experimentation exp = experiments.get(state.getExperimentId());
+        if (exp == null){
+            log.debug("No active experiment for experimentId={}", state.getExperimentId());
             return;
         }
-
+        log.info("ikram loves islam {}", exp);
         ExperimentationState result = compute(state, exp);
-        producer.send(state.getReactorId(), result); //send to experiment-service to compute experimentation state
+        producer.send(exp.getExperimentId(), result);
+
+
+
     }
 
 
@@ -109,6 +114,7 @@ public class ModelService {
 
         log.info("here experimentation state received");
         return ExperimentationState.builder()
+                .experimentId(exp.getExperimentId())
                 .ph(ph)
                 .temperature(temp)
                 .population(popResult.population())

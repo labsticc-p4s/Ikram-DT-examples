@@ -20,10 +20,10 @@ public class ExperimentStateConsumer {
 
 
     @KafkaListener(topics = "experiment-state", groupId = "experiment-service")
-    public void onExperimentState(ConsumerRecord<String, String> record) {
+    public void onExperimentState(String json) {
         try {
-            ExperimentationState state = objectMapper.readValue(record.value(), ExperimentationState.class);
-            service.createExperimentState(record.key(), state);
+            ExperimentationState state = objectMapper.readValue(json, ExperimentationState.class);
+            service.createExperimentState(state);
         } catch (Exception e) {
             log.error("Failed to process experiment-state: {}", e.getMessage());
         }

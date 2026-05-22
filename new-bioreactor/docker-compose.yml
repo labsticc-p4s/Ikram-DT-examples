@@ -19,7 +19,9 @@ services:
       retries: 10
 
   strain-service:
-    build: ./strain-service
+    build:
+      context: .
+      dockerfile: strain-service/Dockerfile
     ports: ["8085:8085"]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
@@ -29,18 +31,22 @@ services:
         condition: service_healthy
 
   bioreactor-mock-service:
-    build: ./bioreactor-mock-service
+    build:
+      context: .
+      dockerfile: bioreactor-mock-service/Dockerfile
     ports: ["8081:8081"]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       GREYCAT_URL: http://host.docker.internal:8080
-      REACTOR_CSV_PATH: /app/demo.csv
+      REACTOR_CSV_PATH: /app/src/main/resources/demo.csv
     depends_on:
       kafka:
         condition: service_healthy
 
   experiment-service:
-    build: ./experiment-service
+    build:
+      context: .
+      dockerfile: experiment-service/Dockerfile
     ports: ["8087:8087"]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
@@ -50,7 +56,9 @@ services:
         condition: service_healthy
 
   models-service:
-    build: ./models-service
+    build:
+      context: .
+      dockerfile: models-service/Dockerfile
     ports: ["8084:8084"]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
@@ -62,8 +70,25 @@ services:
       strain-service:
         condition: service_started
 
+  digital-twin-service:
+    build:
+      context: .
+      dockerfile: digital-twin-service/Dockerfile
+    ports: [ "8082:8082" ]
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    depends_on:
+      kafka:
+        condition: service_healthy
+      experiment-service:
+        condition: service_started
+      models-service:
+        condition: service_started
+
   gateway-service:
-    build: ./gateway-service
+    build:
+      context: .
+      dockerfile: gateway-service/Dockerfile
     ports: ["8086:8086"]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092

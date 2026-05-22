@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Experimentation {
 
+    private String experimentId;
     private String reactorId;
     private String condInit;
     private String populationModel;

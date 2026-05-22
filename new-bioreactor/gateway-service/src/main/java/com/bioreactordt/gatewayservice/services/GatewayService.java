@@ -10,6 +10,9 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -22,6 +25,7 @@ public class GatewayService {
     @Value("${services.strain-url}")
     private String strainUrl;
 
+    private final ConcurrentHashMap<String, String> activeExperiments = new ConcurrentHashMap<>();
 
     public void startTwin(Experimentation request) throws Exception {
 
@@ -33,12 +37,19 @@ public class GatewayService {
                 .populationModel(request.getPopulationModel())
                 .phModel(request.getPhModel())
                 .tempModel(request.getTempModel())
+                .source("Physical")
                 .build();
 
+        experiment.setExperimentId(UUID.randomUUID().toString());
+        activeExperiments.put(experiment.getReactorId(), experiment.getExperimentId());
 
-        kafkaTemplate.send("experiment-created", experiment.getReactorId(), objectMapper.writeValueAsString(experiment));
+        kafkaTemplate.send("experiment-created", objectMapper.writeValueAsString(experiment));
 
         log.info("Twin started reactor={} condId={}", experiment.getReactorId(), experiment.getCondInit());
+    }
+
+    public String getActivePhysicalExp(String reactorId){
+        return activeExperiments.get(reactorId);
     }
 
 

@@ -16,9 +16,9 @@ public class ExperimentStateProducer {
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
 
-    public void send(String reactorId, ExperimentationState state) {
+    public void send(String experimentId, ExperimentationState state) {
         try {
-            kafkaTemplate.send("experiment-state", reactorId, objectMapper.writeValueAsString(state));
+            kafkaTemplate.send("experiment-state", experimentId, objectMapper.writeValueAsString(state));
         } catch (Exception e) {
             log.error("Failed to send experimentation state: {}", e.getMessage());
         }

@@ -30,4 +30,18 @@ public class ExperimentController {
 
     }
 
+
+    @GetMapping("/{experimentId}")
+    public ResponseEntity<?> getExperiment(@PathVariable String experimentId) {
+        try {
+            Map<String, Object> result = service.getExperimentWithStates(experimentId);
+            if (result == null) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
+    }
+
 }

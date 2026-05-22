@@ -1,5 +1,13 @@
-FROM eclipse-temurin:17-jre
+FROM maven:3.9.6-eclipse-temurin-17
 WORKDIR /app
-COPY target/experiment-service-0.0.1-SNAPSHOT.jar app.jar
+
+# Install greycat SDK into Maven cache
+COPY greycatSDK/greycat-sdk-7.8.1-stable.jar /tmp/greycat-sdk.jar
+RUN mvn install:install-file -Dfile=/tmp/greycat-sdk.jar -DgroupId=greycat -DartifactId=sdk -Dversion=7.8.1-stable -Dpackaging=jar
+
+COPY experiment-service/pom.xml .
+RUN mvn dependency:go-offline -B -q
+
+COPY experiment-service/src ./src
 EXPOSE 8087
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["mvn", "spring-boot:run", "-q"]
