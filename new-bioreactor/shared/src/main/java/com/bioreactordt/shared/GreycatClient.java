@@ -56,13 +56,6 @@ public class GreycatClient {
         }
     }
 
-//    private synchronized GreyCat connect() throws Exception {
-//        if (greycat == null) { not used
-//            greycat = new GreyCat(url, null, false, false);
-//            log.info("GreyCat connected at {}", url);
-//        }
-//        return greycat;
-//    }
 
 /*
     public Object call(String fn, Object... args) {
