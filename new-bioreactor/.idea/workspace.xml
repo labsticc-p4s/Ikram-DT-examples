@@ -4,145 +4,66 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b3a0e5-c35a-43ae-b151-78aeb381f1bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bioreactor/digital-twin-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bioreactor/digital-twin-service/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/.idea/lamp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/Bioreactor.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/data-manager-service/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/data-manager-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/data-manager-service/src/main/java/com/digitaltwin/datamanagerservice/DataManagerServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/data-manager-service/src/main/java/com/digitaltwin/datamanagerservice/kafka/DataStateConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/data-manager-service/src/main/java/com/digitaltwin/datamanagerservice/kafka/DataStateProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/data-manager-service/src/main/java/com/digitaltwin/datamanagerservice/model/DataStateModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/data-manager-service/src/main/java/com/digitaltwin/datamanagerservice/service/DataStateService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/data-manager-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/DigitalTwinApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/controller/DigitalTwinController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/kafka/ModelResultConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/kafka/TwinStateProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/model/LampState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/model/ModelResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/model/Simulation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/model/SimulationStep.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/service/SimulationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/java/com/digitaltwin/twin/service/SyncService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/digital-twin-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/env-service/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/env-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/env-service/src/main/java/com/digitaltwin/envservice/EnvServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/env-service/src/main/java/com/digitaltwin/envservice/controller/EnvController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/env-service/src/main/java/com/digitaltwin/envservice/model/EnvState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/env-service/src/main/java/com/digitaltwin/envservice/service/EnvService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/env-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/frontend/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/frontend/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/frontend/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/frontend/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/frontend/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/src/main/java/com/digitaltwin/models/ModelServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/src/main/java/com/digitaltwin/models/controller/ModelController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/src/main/java/com/digitaltwin/models/kafka/ModelConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/src/main/java/com/digitaltwin/models/kafka/ModelProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/src/main/java/com/digitaltwin/models/model/DataStateModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/src/main/java/com/digitaltwin/models/model/ModelResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/src/main/java/com/digitaltwin/models/service/LampModelService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/model-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/java/com/digitaltwin/physical/PhysicalEntityApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/java/com/digitaltwin/physical/controller/LampConfigController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/java/com/digitaltwin/physical/controller/LampPhysicalController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/java/com/digitaltwin/physical/kafka/PhysicalLampProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/java/com/digitaltwin/physical/model/LampState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/java/com/digitaltwin/physical/model/LanpConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/java/com/digitaltwin/physical/service/LampConfigService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/java/com/digitaltwin/physical/service/LampPhysicalService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/physical-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/shadow-service/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/shadow-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/shadow-service/src/main/java/com/digitaltwin/shadow/ShadowServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/shadow-service/src/main/java/com/digitaltwin/shadow/controller/ShadowController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/shadow-service/src/main/java/com/digitaltwin/shadow/kafka/ShadowKafkaConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/shadow-service/src/main/java/com/digitaltwin/shadow/model/ModelResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/shadow-service/src/main/java/com/digitaltwin/shadow/service/ShadowStorageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lamp/shadow-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/bioreactor-mock-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/2022-10-03-Act2-1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/2023-01-30-Act3-1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/20230306-Act4-1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/BioreactorMockServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/controllers/BioreactorStateController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/kafka/BioreactorProducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/models/BioreactorEntity$BioreactorEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/models/BioreactorEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/models/BioreactorState$BioreactorStateBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/models/BioreactorState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/models/sensor/CsvSensorBioreactorData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/models/sensor/SensorSource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/replay/MapTimeSerie$DataPoint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/replay/MapTimeSerie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/replay/ModTimeSerie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/replay/RawDataSheet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/replay/TimeSerie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/services/BioreactorEntityService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/com/bioreactordt/bioreactormockservice/services/BioreactorStateSendService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/classes/demo.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/digital-twin-service/Dockerfile" afterDir="false" />
+    <list default="true" id="32b3a0e5-c35a-43ae-b151-78aeb381f1bd" name="Changes" comment="fix greycat storage">
+      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/compos/GammaBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/compos/PhysicalCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/compos/SimulationsCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/compos/StoragePanel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/compos/StrainEditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/compos/StrainManagementPanel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/compos/TwinCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/helpers/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useExperiment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useReactor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useSimulations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useStoragePanel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useStrains.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/controllers/ProxyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/services/BioreactorEntityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/services/BioreactorEntityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/services/BioreactorStateSendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bioreactor-mock-service/src/main/java/com/bioreactordt/bioreactormockservice/services/BioreactorStateSendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digital-twin-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/digital-twin-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/DigitalTwinServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/DigitalTwinServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/controllers/SimulationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/controllers/SimulationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/kafka/SimulationStateProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/kafka/SimulationStateProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/models/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/models/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/services/SimulationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/digital-twin-service/src/main/java/com/bioreactordt/digitaltwinservice/services/SimulationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/classes/com/bioreactordt/digitaltwinservice/DigitalTwinServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/classes/com/bioreactordt/digitaltwinservice/kafka/SimulationStateProducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/classes/com/bioreactordt/digitaltwinservice/models/Simulation$SimulationBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/classes/com/bioreactordt/digitaltwinservice/models/Simulation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/classes/com/bioreactordt/digitaltwinservice/models/SimulationStep$SimulationStepBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/classes/com/bioreactordt/digitaltwinservice/models/SimulationStep.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/classes/com/bioreactordt/digitaltwinservice/services/SimulationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/digital-twin-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/digital-twin-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/digital-twin-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/experiment-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/experiment-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/ExperimentServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/ExperimentServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/controllers/ExperimentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/controllers/ExperimentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/kafka/ExperimentStateConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/kafka/ExperimentStateConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/models/Experimentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/models/Experimentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/models/ExperimentationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/models/ExperimentationState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/services/ExperimentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/experiment-service/src/main/java/com/bioreactordt/experimentservice/services/ExperimentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/GatewayServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/controllers/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/controllers/GatewayController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/kafka/BioreactorConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/kafka/BioreactorConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/models/BioreactorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/models/BioreactorState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/models/Experimentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/models/Experimentation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/services/GatewayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/bioreactordt/gatewayservice/services/GatewayService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/greycat/project.gcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greycat/project.gcl" beforeDir="false" afterPath="$PROJECT_DIR$/greycat/project.gcl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/kafka/ExperimentStateProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/kafka/ExperimentStateProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/models/BioreactorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/models/BioreactorState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/models/Experimentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/models/Experimentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/models/ExperimentationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/models/ExperimentationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/ModelsServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/ModelsServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/kafka/ExperimentConsumer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/services/ModelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/src/main/java/com/bioreactordt/modelsservice/services/ModelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/models-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strain-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/strain-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strain-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/strain-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strain-service/src/main/java/com/bioreactordt/strainservice/StrainServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/strain-service/src/main/java/com/bioreactordt/strainservice/StrainServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strain-service/src/main/java/com/bioreactordt/strainservice/controllers/StrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strain-service/src/main/java/com/bioreactordt/strainservice/controllers/StrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strain-service/src/main/java/com/bioreactordt/strainservice/services/StrainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/strain-service/src/main/java/com/bioreactordt/strainservice/services/StrainService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,12 +71,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="76" />
+    <option name="cachedIndexableFilesCount" value="80" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Dockerfile" />
         <option value="Class" />
       </list>
     </option>
@@ -163,6 +85,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ikramYSF&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/labsticc-p4s/Ikram-DT-examples.git&quot;,
+    &quot;accountId&quot;: &quot;9bf658b6-0f76-401e-90b7-a216ade08e4b&quot;
+  }
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -188,6 +122,7 @@
     &quot;Docker.docker-compose.yml.frontend: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.yml.kafka: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.experiment-service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.frontend/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;Docker.greycat/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;Docker.models-service/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
@@ -196,13 +131,13 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging bioreactor-with-gc&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;bioreactor-with-gc&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/i25yousf/Documents/DT-examples/new-bioreactor&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
@@ -210,10 +145,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor" />
-      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\gateway-service\src\main\java\com\bioreactordt\gatewayservice\controllers" />
-      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\greycat" />
-      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\models-service" />
-      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\gateway-service" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\frontend\src\compos" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\frontend\src\hooks" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\frontend\src" />
+      <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\frontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\i25yousf\Documents\DT-examples\new-bioreactor\experiment-service" />
@@ -229,7 +164,7 @@
       <recent name="com.bioreactordt.strainservice.services" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.frontend: Compose Deployment">
+  <component name="RunManager" selected="Docker.frontend/Dockerfile">
     <configuration default="true" type="DAPConfiguration" factoryName="DAPConfiguration">
       <option name="workingDirectory" value="$PROJECT_DIR$/experiment-service" />
       <envs />
@@ -300,21 +235,21 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="models-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+    <configuration name="frontend/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
-          <option name="sourceFilePath" value="models-service/Dockerfile" />
+          <option name="sourceFilePath" value="frontend/Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.frontend/Dockerfile" />
         <item itemvalue="Docker.docker-compose.yml.frontend: Compose Deployment" />
         <item itemvalue="Docker.experiment-service/Dockerfile" />
         <item itemvalue="Docker.bioreactor-mock-service/Dockerfile" />
         <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
-        <item itemvalue="Docker.models-service/Dockerfile" />
       </list>
     </recent_temporary>
   </component>
@@ -334,5 +269,9 @@
       <updated>1775820625550</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix greycat storage" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix greycat storage" />
   </component>
 </project>

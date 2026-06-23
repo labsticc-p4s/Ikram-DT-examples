@@ -22,13 +22,33 @@ public class GatewayController {
     @PostMapping("/start")
     public ResponseEntity<?> startTwin(@RequestBody Experimentation request) {
         try {
-            service.startTwin(request);
-            return ResponseEntity.ok(Map.of("status", "success", "message", "Twin started"));
-
+            String experimentId = service.startTwin(request);
+            return ResponseEntity.ok(Map.of("status", "success", "message", "Twin started", "experimentId", experimentId));
         } catch (Exception e) {
             log.error("Failed to start twin: {}", e.getMessage());
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
+    }
+
+    @PostMapping("/stop")
+    public ResponseEntity<?> stopTwin(@RequestBody Map<String, String> body) {
+        try {
+            String reactorId = body.get("reactorId");
+            service.stopTwin(reactorId);
+            return ResponseEntity.ok(Map.of("status", "success", "message", "Twin stopped"));
+        } catch (Exception e) {
+            log.error("Failed to stop twin: {}", e.getMessage());
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+        }
+    }
+
+
+    //not used
+    @GetMapping("/active/{reactorId}")
+    public ResponseEntity<?> getActive(@PathVariable String reactorId) {
+        String expId = service.getActivePhysicalExp(reactorId);
+        if (expId == null) return ResponseEntity.ok(Map.of("active", false));
+        return ResponseEntity.ok(Map.of("active", true, "experimentId", expId));
     }
 }
 

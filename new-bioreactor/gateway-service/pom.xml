@@ -50,11 +50,8 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>greycat</groupId>
-            <artifactId>sdk</artifactId>
-            <version>7.8.1-stable</version>
-        </dependency>
+
+
     </dependencies>
 
 

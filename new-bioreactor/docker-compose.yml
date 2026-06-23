@@ -18,11 +18,13 @@ services:
       timeout: 10s
       retries: 10
 
+
+
   strain-service:
     build:
       context: .
       dockerfile: strain-service/Dockerfile
-    ports: ["8085:8085"]
+    ports: [ "8085:8085" ]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       GREYCAT_URL: http://host.docker.internal:8080
@@ -34,7 +36,7 @@ services:
     build:
       context: .
       dockerfile: bioreactor-mock-service/Dockerfile
-    ports: ["8081:8081"]
+    ports: [ "8081:8081" ]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       GREYCAT_URL: http://host.docker.internal:8080
@@ -47,7 +49,7 @@ services:
     build:
       context: .
       dockerfile: experiment-service/Dockerfile
-    ports: ["8087:8087"]
+    ports: [ "8087:8087" ]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       GREYCAT_URL: http://host.docker.internal:8080
@@ -59,11 +61,10 @@ services:
     build:
       context: .
       dockerfile: models-service/Dockerfile
-    ports: ["8084:8084"]
+    ports: [ "8084:8084" ]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       GREYCAT_URL: http://host.docker.internal:8080
-      STRAIN_SERVICE_URL: http://strain-service:8085
     depends_on:
       kafka:
         condition: service_healthy
@@ -85,14 +86,39 @@ services:
       models-service:
         condition: service_started
 
+
   gateway-service:
     build:
       context: .
       dockerfile: gateway-service/Dockerfile
-    ports: ["8086:8086"]
+    ports: [ "8086:8086" ]
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       GREYCAT_URL: http://host.docker.internal:8080
       STRAIN_SERVICE_URL: http://strain-service:8085
       PHYSICAL_SERVICE_URL: http://bioreactor-mock-service:8081
-      MODELS_SERVICE_URL: http://models-s
+      MODELS_SERVICE_URL: http://models-service:8084
+      EXPERIMENT_SERVICE_URL: http://experiment-service:8087
+      TWIN_SERVICE_URL: http://digital-twin-service:8082
+    depends_on:
+      kafka:
+        condition: service_healthy
+      strain-service:
+        condition: service_started
+      bioreactor-mock-service:
+        condition: service_started
+      models-service:
+        condition: service_started
+      digital-twin-service:
+        condition: service_started
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_GATEWAY_URL: http://localhost:8086
+    ports: [ "3000:80" ]
+    depends_on:
+      - gateway-service

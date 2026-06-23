@@ -44,6 +44,8 @@ public class StrainController {
     @GetMapping("/initial/{condId}")
     public ResponseEntity<?> getInitialStrain(@PathVariable String condId) {
         try {
+            log.info("here get the init strain by id");
+
             return ResponseEntity.ok(service.getInitialStrain(condId));
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
@@ -51,6 +53,26 @@ public class StrainController {
     }
 
 
+    @GetMapping("/family")
+    public ResponseEntity<?> getAllFamilies() {
+        try {
+            log.info("here get the fam");
+            return ResponseEntity.ok(service.getAllFamilies());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/initial")
+    public ResponseEntity<?> getAllInitialStrains() {
+        try {
+            log.info("here get the init strains");
+
+            return ResponseEntity.ok(service.getAllInitConds());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
 
 
 }

@@ -1,93 +1,82 @@
 package com.bioreactordt.strainservice.services;
 
+import com.bioreactordt.shared.GreycatClient;
 import com.bioreactordt.strainservice.models.InitialStrain;
 import com.bioreactordt.strainservice.models.StrainFamily;
-import greycat.GreyCat;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class StrainService {
 
-    private final String greycatUrl;
-    private GreyCat greycat;
+
+    private final GreycatClient greycat;
 
 
-
-
-    public StrainService(@Value("${greycat.url}") String greycatUrl) {
-        this.greycatUrl = greycatUrl;
-    }
-
-    private synchronized GreyCat greycat() {
-        if (greycat == null) {
-            try {
-                greycat = new GreyCat(greycatUrl, null, false, false);
-                log.info("Connected to GreyCat at {}", greycatUrl);
-            } catch (Exception e) {
-                log.error("Failed to connect to GreyCat at {}: {}", greycatUrl, e.getMessage());
-                throw new RuntimeException("Failed to connect to GreyCat at " + greycatUrl, e);
-            }
-        }
-        return greycat;
+    public void saveFamily(StrainFamily f) throws Exception {
+        greycat.call("project::family_save",
+                f.getStrainId(), f.getName(), f.getMuMax(), f.getLatency(),
+                f.getPhMin(), f.getPhOpt(), f.getPhMax(),
+                f.getTempMin(), f.getTempOpt(), f.getTempMax());
+        log.info("family saved: {}", f.getStrainId());
     }
 
 
 
 
-
-    public void saveFamily(StrainFamily f) {
-        try{
-            greycat().call("project::family_save", f.getStrainId(), f.getName(), f.getMuMax(), f.getLatency(), f.getPhMin(), f.getPhOpt(), f.getPhMax(), f.getTempMin(), f.getTempOpt(), f.getTempMax());
-            log.info("Strain Family {} registered", f.getStrainId());
-
-        }catch (Exception e) {
-            log.error("Failed to save a family: {}", e.getMessage());
-        }
+    public void saveInitialStrain(InitialStrain s) throws Exception {
+        greycat.call("project::save_initial_strain",
+                s.getCondId(), s.getPopulationInit(), s.getPopulationMax(),
+                s.getFamilyIds().get(0));
+        log.info("initial strain saved: {}", s.getCondId());
     }
 
 
-    public void saveInitialStrain(InitialStrain initial) {
-        try {
-            log.info("Received initial strain: condId={}, familyIds={}", initial.getCondId(), initial.getFamilyIds());
 
-            String familyId = initial.getFamilyIds().get(0);
-            log.info("using familyid {}", familyId);
 
-            greycat().call("project::save_initial_strain", initial.getCondId(), initial.getPopulationInit(), initial.getPopulationMax(), familyId);
 
-        } catch (Exception e) {
-            log.error("failed to link cond init to strain {}", e.getMessage());
-            throw new RuntimeException(e);
-        }
-    }
-
-    public InitialStrain getInitialStrain(String condId) throws IOException {
-        Object raw = greycat().call("project::get_initial_strain", condId);
-
-        String str = raw.toString()
-                .replace("core::Array[", "")
-                .replace("]", "");
-
-        String[] parts = str.split(",");
-       // log.info(parts[0]);
-        return new InitialStrain(
-                parts[0],
-                Double.parseDouble(parts[1]),
-                Double.parseDouble(parts[2]),
-                List.of(parts[3])
-        );
+    public InitialStrain getInitialStrain(String condId) throws Exception {
+        Map<String, Object> r = greycat.callMap("project::get_initial_strain", condId);
+        if (r == null) return null;
+        String familyName = (String) r.get("familyName");
+        return new InitialStrain(condId,
+                d(r.get("populationInit")), d(r.get("populationMax")),
+                familyName == null ? List.of() : List.of(familyName));
     }
 
 
+    public List<StrainFamily> getAllFamilies() throws Exception {
+        return greycat.callList("project::get_all_families").stream().map(r ->
+                StrainFamily.builder()
+                        .strainId((String) r.get("strainId"))
+                        .name    ((String) r.get("name"))
+                        .muMax   (d(r.get("muMax")))    .latency(d(r.get("latency")))
+                        .phMin   (d(r.get("phMin")))    .phOpt  (d(r.get("phOpt")))   .phMax  (d(r.get("phMax")))
+                        .tempMin (d(r.get("tempMin")))  .tempOpt(d(r.get("tempOpt"))) .tempMax(d(r.get("tempMax")))
+                        .build()
+        ).toList();
+    }
+
+    public List<InitialStrain> getAllInitConds() throws Exception {
+        return greycat.callList("project::get_all_init_conds").stream().map(r ->
+                new InitialStrain((String) r.get("condId"),
+                        d(r.get("populationInit")), d(r.get("populationMax")),
+                        List.of((String) r.get("familyId")))
+        ).toList();
+    }
+
+
+
+    private double d(Object v) {
+        if (v instanceof Number n) return n.doubleValue();
+        return Double.parseDouble(v.toString());
+    }
 
 
 

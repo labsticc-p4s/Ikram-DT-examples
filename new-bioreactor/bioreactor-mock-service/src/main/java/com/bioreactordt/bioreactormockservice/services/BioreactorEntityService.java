@@ -1,18 +1,12 @@
 package com.bioreactordt.bioreactormockservice.services;
 
-import com.bioreactordt.bioreactormockservice.kafka.BioreactorProducer;
-import com.bioreactordt.bioreactormockservice.models.BioreactorState;
-import com.bioreactordt.bioreactormockservice.replay.RawDataSheet;
-import com.bioreactordt.bioreactormockservice.replay.TimeSerie;
+
 import greycat.GreyCat;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
 
 @Service
 @Slf4j

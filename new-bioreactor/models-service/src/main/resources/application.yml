@@ -13,5 +13,11 @@ spring:
       auto-offset-reset: latest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      concurrency: 4
+
+greycat:
+  url: ${GREYCAT_URL:http://greycat:8080}
+
 services:
   strain-url: ${STRAIN_SERVICE_URL:http://strain-service:8085}

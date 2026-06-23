@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/gateway-service/pom.xml" />
         <option value="$PROJECT_DIR$/models-service/pom.xml" />
         <option value="$PROJECT_DIR$/strain-service/pom.xml" />
+        <option value="$PROJECT_DIR$/shared/pom.xml" />
       </list>
     </option>
   </component>

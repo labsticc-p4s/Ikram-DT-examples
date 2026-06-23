@@ -20,7 +20,7 @@ public class BioreactorConsumer {
     private final GatewayService service;
 
 
-    @KafkaListener(topics = "bioreactor-state", groupId = "models-service")
+    @KafkaListener(topics = "bioreactor-state", groupId = "gateway-service")
     public void onBioreactorState(String json) {
         try {
             BioreactorState raw = objectMapper.readValue(json, BioreactorState.class);

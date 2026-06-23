@@ -15,8 +15,9 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 services:
-  strain-url:   ${STRAIN_SERVICE_URL:http://strain-service:8085}
-  physical-url: ${PHYSICAL_SERVICE_URL:http://bioreactor-mock-service:8081}
-  twin-url:     ${TWIN_SERVICE_URL:http://digital-twin-service:8082}
-  shadow-url:   ${SHADOW_SERVICE_URL:http://shadow-service:8083}
-  models-url:   ${MODELS_SERVICE_URL:http://models-service:8084}
+  strain-url:     ${STRAIN_SERVICE_URL:http://strain-service:8085}
+  physical-url:   ${PHYSICAL_SERVICE_URL:http://bioreactor-mock-service:8081}
+  twin-url:       ${TWIN_SERVICE_URL:http://digital-twin-service:8082}
+  shadow-url:     ${SHADOW_SERVICE_URL:http://shadow-service:8083}
+  models-url:     ${MODELS_SERVICE_URL:http://models-service:8084}
+  experiment-url: ${EXPERIMENT_SERVICE_URL:http://experiment-service:8087}

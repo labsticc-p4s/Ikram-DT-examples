@@ -1,34 +1,48 @@
 package com.bioreactordt.digitaltwinservice.services;
 
 import com.bioreactordt.digitaltwinservice.kafka.SimulationStateProducer;
-
 import com.bioreactordt.digitaltwinservice.models.Simulation;
 import com.bioreactordt.digitaltwinservice.models.SimulationStep;
+import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-
+import java.util.concurrent.TimeUnit;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class SimulationService {
+public class SimulationService{
 
     private final SimulationStateProducer producer;
 
     private final ExecutorService executor = Executors.newCachedThreadPool();
 
+    private final ConcurrentHashMap<String, Simulation> pendingSimulations = new ConcurrentHashMap<>();
 
     public String startSimulation(Simulation sim) {
-        String experimentId = producer.sendExperimentCreated(sim,
-                expId -> executor.submit(() -> runSimulation(sim, expId))
-        );
+
+        String experimentId = producer.sendExperimentCreated(sim);
+        if (experimentId != null) {
+            pendingSimulations.put(experimentId, sim);
+            log.info("Simulation registered, waiting for experiment-started ACK: {}", experimentId);
+        }
         return experimentId;
 
+    }
+
+
+    public void runPendingSimulation(String experimentId) {
+        Simulation sim = pendingSimulations.remove(experimentId);
+        if (sim == null) {
+            log.warn("No pending simulation found for experimentId {}", experimentId);
+            return;
+        }
+        executor.submit(() -> runSimulation(sim, experimentId));
     }
 
 
@@ -53,16 +67,32 @@ public class SimulationService {
                 producer.sendBioreactorState(experimentId, sim.getReactorId(), step.getPh(), step.getTemperature());
                 sleep(tickDelayMs);
             }
+
         }
 
 
-        log.info("Simulation complete for reactor {}", sim.getReactorId());
+        //log.info("Simulation is completed for reactor {}", sim.getReactorId());
     }
+
+
 
     private void sleep(long ms) {
         try { Thread.sleep(ms); }
         catch (InterruptedException e) { Thread.currentThread().interrupt(); }
     }
 
+
+    @PreDestroy
+    public void shutdown() {
+        executor.shutdown();
+        try {
+            if (!executor.awaitTermination(5, TimeUnit.SECONDS)) {
+                executor.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            executor.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
+    }
 
 }

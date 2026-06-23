@@ -20,7 +20,7 @@ public class BioreactorStateSendService {
 
     public BioreactorStateSendService(
             BioreactorProducer producer,
-            @Value("${reactor.source.csv.path}")         String csvPath,
+            @Value("${reactor.source.csv.path}")  String csvPath,
             @Value("#{${reactor.source.csv.columns}}") Map<String, String> columns) {
 
         this.producer = producer;

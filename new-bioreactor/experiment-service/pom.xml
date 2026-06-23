@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>com.bioreactorDT</groupId>
     <artifactId>experiment-service</artifactId>
@@ -54,6 +54,13 @@
             <groupId>greycat</groupId>
             <artifactId>sdk</artifactId>
             <version>7.8.1-stable</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.bioreactorDT</groupId>
+            <artifactId>shared</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

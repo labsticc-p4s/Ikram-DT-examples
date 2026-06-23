@@ -7,7 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
-      <profile name="Annotation profile for strain-service" enabled="true">
+      <profile name="Annotation profile for shared" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="shared" />
+      </profile>
+      <profile name="Annotation profile for digital-twin-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -17,8 +26,8 @@
         <module name="models-service" />
         <module name="experiment-service" />
         <module name="bioreactor-mock-service" />
-        <module name="strain-service" />
         <module name="gateway-service" />
+        <module name="strain-service" />
         <module name="digital-twin-service" />
       </profile>
     </annotationProcessing>
@@ -30,6 +39,7 @@
       <module name="experiment-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="models-service" options="-parameters" />
+      <module name="shared" options="" />
       <module name="strain-service" options="-parameters" />
     </option>
   </component>
